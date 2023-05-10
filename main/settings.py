@@ -48,13 +48,15 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-        # Other
-    'crispy_forms',
-    'crispy_bootstrap5',
-
     # Apps
     'home',
     'musics',
+
+    # Other
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 SITE_ID = 1
@@ -163,6 +165,13 @@ LOGIN_REDIRECT_URL = '/'
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+# Cloudinary Settings
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
+FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
